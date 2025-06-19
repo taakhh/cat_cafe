@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <title>Помощь | Котокафе "Лапы и хвосты"</title>
+  
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <a href="index.html">
+      <img src="logo.jpg" alt="Логотип Котокафе">
+    </a>
+  </div>
+  
+  <div class="nav-menu">
+    <a href="index.html">Котокафе</a>
+    <a href="cats.html">Котики</a>
+    <a href="price.html">Прайс</a>
+    <a href="#" class="active">Помощь</a>
+  </div>
+</nav>
+
+<header>
+  <div class="header-content">
+    <h1>Помощь и поддержка</h1>
+    <p>Здесь вы найдёте ответы на часто задаваемые вопросы и сможете связаться с нами</p>
+  </div>
+</header>
+
+<section class="help-section">
+  <article class="help-article">
+    <h2>Частые вопросы</h2>
+    
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleAnswer(this)">
+        <span>Какие правила посещения котокафе?</span>
+        <span>+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Мы просим соблюдать несколько простых правил: не будить спящих котиков, не кормить их своей едой, перед посещением обработать руки антисептиком. Дети до 10 лет допускаются только в сопровождении взрослых.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleAnswer(this)">
+        <span>Можно ли забронировать столик заранее?</span>
+        <span>+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Да, особенно мы рекомендуем бронировать столики в выходные дни. Вы можете сделать это по телефону +7 (123) 456-78-90 или через форму обратной связи ниже.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleAnswer(this)">
+        <span>Как можно помочь вашим котикам?</span>
+        <span>+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Вы можете помочь несколькими способами: стать волонтёром, взять котика на передержку, сделать пожертвование или принести корм, наполнитель или игрушки. Все подробности уточняйте у администратора.</p>
+      </div>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleAnswer(this)">
+        <span>Можно ли прийти со своим котом?</span>
+        <span>+</span>
+      </div>
+      <div class="faq-answer">
+        <p>К сожалению, нет. Мы заботимся о здоровье и комфорте наших котиков, поэтому посещение с другими животными не допускается.</p>
+      </div>
+    </div>
+  </article>
+  
+  <article class="help-article">
+  <h2>Свяжитесь с нами</h2>
+  <form class="contact-form" action="https://formsubmit.co/tania070607kat@gmail.com" method="POST">
+    <!-- Добавьте скрытое поле для перенаправления после отправки -->
+    <input type="hidden" name="_next" value="https://вашсайт.ru/thank-you.html">
+    
+    <!-- Защита от спама -->
+    <input type="text" name="_honey" style="display:none">
+    
+    <!-- Отключение капчи -->
+    <input type="hidden" name="_captcha" value="false">
+    
+    <!-- Поля формы -->
+    <div class="form-group">
+      <label for="name">Ваше имя</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="phone">Телефон</label>
+      <input type="tel" id="phone" name="phone">
+    </div>
+    
+    <div class="form-group">
+      <label for="subject">Тема обращения</label>
+      <select id="subject" name="subject">
+        <option value="Бронирование посещения">Бронирование посещения</option>
+        <option value="Помощь котикам">Помощь котикам</option>
+        <option value="Усыновление">Усыновление</option>
+        <option value="Другое">Другое</option>
+      </select>
+    </div>
+    
+    <div class="form-group full-width">
+      <label for="message">Сообщение</label>
+      <textarea id="message" name="message" required></textarea>
+    </div>
+    
+    <div class="form-group full-width">
+      <button type="submit" class="submit-btn">Отправить сообщение</button>
+    </div>
+  </form>
+  
+  <div id="formStatus" style="display: none; margin-top: 20px; padding: 10px; border-radius: 4px;"></div>
+</article>
+
+      <!-- Скрытое поле для защиты от спама -->
+      <input type="hidden" name="_gotcha" style="display:none">
+    </form>
+    
+    <!-- Сообщение об успешной отправке -->
+    <div id="formSuccess" style="display: none;">
+      <p style="color: green; font-weight: bold;">Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.</p>
+    </div>
+  </article>
+  
+  <article class="help-article">
+    <h2>Как нас найти</h2>
+    <p><strong>Адрес:</strong> г. Ростов-на-Дону, ул. Города Волос, 6</p>
+    <p><strong>Телефон:</strong> +7 (123) 456-78-90</p>
+    <p><strong>Email:</strong> info@paws-tails.ru</p>
+    <p><strong>Часы работы:</strong> Пн-Пт: 12:00-21:00, Сб-Вс: 11:00-22:00</p>
+  </article>
+</section>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="logo.jpg" alt="Логотип Котокафе Лапы и хвосты" class="footer-logo-img">
+      <p class="footer-slogan">Уютное пространство с пушистыми друзьями</p>
+    </div>
+    
+    <div class="footer-nav">
+      <h3 class="footer-title">Навигация</h3>
+      <ul class="footer-menu">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="cats.html">Наши котики</a></li>
+        <li><a href="price.html">Цены и услуги</a></li>
+        <li><a href="#" class="active">Помощь</a></li>
+        <li><a href="#">Контакты</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-contacts">
+      <h3 class="footer-title">Контакты</h3>
+      <p>г. Ростов-на-Дону</p>
+      <p>Телефон: +7 (123) 456-78-90</p>
+      <p>Email: info@paws-tails.ru</p>
+    </div>
+    
+    <div class="footer-social">
+      <h3 class="footer-title">Мы в соцсетях</h3>
+      <div class="social-icons">
+        <a href="#"><img src="vk.png" alt="ВКонтакте"></a>
+        <a href="#"><img src="inst.png" alt="Instagram"></a>
+        <a href="#"><img src="tg.png" alt="Telegram"></a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2025 Котокафе "Лапы и хвосты". Все права защищены.</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelector('.contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const form = this;
+  const formStatus = document.getElementById('formStatus');
+  
+  // Показываем статус отправки
+  formStatus.textContent = 'Отправка сообщения...';
+  formStatus.style.display = 'block';
+  formStatus.style.backgroundColor = '#fff3cd';
+  formStatus.style.color = '#856404';
+  
+  // Отправляем форму
+  fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      formStatus.textContent = 'Сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.';
+      formStatus.style.backgroundColor = '#d4edda';
+      formStatus.style.color = '#155724';
+      form.reset();
+    } else {
+      throw new Error('Ошибка сети');
+    }
+  })
+  .catch(error => {
+    formStatus.textContent = 'Произошла ошибка при отправке. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону.';
+    formStatus.style.backgroundColor = '#f8d7da';
+    formStatus.style.color = '#721c24';
+    console.error('Ошибка:', error);
+  });
+});
+</script>
+
+</body>
+</html>

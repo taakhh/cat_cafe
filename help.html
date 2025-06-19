@@ -187,41 +187,34 @@
 </footer>
 
 <script>
-  document.querySelector('.contact-form').addEventListener('submit', function(e) {
+  document.querySelector('.contact-form').addEventListener('submit', async (e) => {
   e.preventDefault();
-  const form = this;
+  const form = e.target;
   const formStatus = document.getElementById('formStatus');
   
-  // Показываем статус отправки
-  formStatus.textContent = 'Отправка сообщения...';
+  // Минимальный статус для быстрой реакции
+  formStatus.textContent = 'Отправка...';
   formStatus.style.display = 'block';
-  formStatus.style.backgroundColor = '#fff3cd';
-  formStatus.style.color = '#856404';
-  
-  // Отправляем форму
-  fetch(form.action, {
-    method: 'POST',
-    body: new FormData(form),
-    headers: {
-      'Accept': 'application/json'
-    }
-  })
-  .then(response => {
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' },
+      // Таймаут 10 секунд (прервёт запрос, если сервер не отвечает)
+      signal: AbortSignal.timeout(10000) 
+    });
+
     if (response.ok) {
-      formStatus.textContent = 'Сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.';
-      formStatus.style.backgroundColor = '#d4edda';
-      formStatus.style.color = '#155724';
+      formStatus.textContent = '✓ Отправлено!';
       form.reset();
     } else {
-      throw new Error('Ошибка сети');
+      throw new Error('Сервер не ответил');
     }
-  })
-  .catch(error => {
-    formStatus.textContent = 'Произошла ошибка при отправке. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону.';
-    formStatus.style.backgroundColor = '#f8d7da';
-    formStatus.style.color = '#721c24';
-    console.error('Ошибка:', error);
-  });
+  } catch (error) {
+    formStatus.textContent = 'Ошибка: попробуйте позже';
+    console.error('Ошибка формы:', error);
+  }
 });
 </script>
 

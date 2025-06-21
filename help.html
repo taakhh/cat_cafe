@@ -186,7 +186,9 @@
   </div>
 </footer>
 
-document.querySelector('.contact-form').addEventListener('submit', async (e) => {
+
+<script>
+  document.querySelector('.contact-form').addEventListener('submit', async (e) => {
   e.preventDefault();
   const form = e.target;
   const formStatus = document.getElementById('formStatus');
@@ -216,8 +218,6 @@ document.querySelector('.contact-form').addEventListener('submit', async (e) => 
   }
 });
 
-<script>
-  
   // Раскрытие/закрытие вопросов
   function toggleAnswer(question) {
     const answer = question.nextElementSibling;

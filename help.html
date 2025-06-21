@@ -217,14 +217,16 @@ document.querySelector('.contact-form').addEventListener('submit', async (e) => 
 });
 
 <script>
-  // Функция для раскрытия/скрытия ответов FAQ
-  function toggleAnswer(element) {
-    const answer = element.nextElementSibling;
-    const plusSign = element.querySelector('span:last-child');
+  
+  // Раскрытие/закрытие вопросов
+  function toggleAnswer(question) {
+    const answer = question.nextElementSibling;
+    const plus = question.querySelector('span:last-child');
     
-    answer.classList.toggle('active');
-    plusSign.textContent = answer.classList.contains('active') ? '−' : '+';
+    answer.classList.toggle('show');
+    plus.textContent = answer.classList.contains('show') ? '−' : '+';
   }
+  
 </script>
 
 </body>

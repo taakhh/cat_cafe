@@ -186,8 +186,7 @@
   </div>
 </footer>
 
-<script>
-  document.querySelector('.contact-form').addEventListener('submit', async (e) => {
+document.querySelector('.contact-form').addEventListener('submit', async (e) => {
   e.preventDefault();
   const form = e.target;
   const formStatus = document.getElementById('formStatus');
@@ -216,6 +215,16 @@
     console.error('Ошибка формы:', error);
   }
 });
+
+<script>
+  // Функция для раскрытия/скрытия ответов FAQ
+  function toggleAnswer(element) {
+    const answer = element.nextElementSibling;
+    const plusSign = element.querySelector('span:last-child');
+    
+    answer.classList.toggle('active');
+    plusSign.textContent = answer.classList.contains('active') ? '−' : '+';
+  }
 </script>
 
 </body>
